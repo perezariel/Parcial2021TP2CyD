@@ -20,9 +20,15 @@ const beers = [
   { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
 ];
 
+function ejecutar(beers) {
+  beers.forEach(beer => {
+    reemplazoLabel(beer)
+    console.log(beer);
+  });
+}
 
-function reemplazoLabel(beers) {
-  return beers.map(beer => ({ ...beer, label: labelModific(beer.label) }))
+function reemplazoLabel(beer) {
+  beer.label = labelModific(beer.label)
 }
 
 function labelModific(label) {
@@ -36,9 +42,5 @@ function partesURL(label) {
   return url;
 }
 
-
-console.log(reemplazoLabel);
-//console.log(labelModific('https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png'));
-
-
+ejecutar(beers);
 
