@@ -15,13 +15,14 @@ const inventory = {
 }
 
 const sale = function (article, cant) {
-
-  for (let article in inventory) {
-    if (article < cant || article === cant) {
-      return 200;
-    }
+  //if (article < cant || article == cant) {
+  if (`${inventory[article]}` < cant || `${inventory[article]}` == cant) {
+    return 200;
+  } else {
+    return 500;
   }
 }
+
 
 // TESTS (no modificar)
 console.log(sale('shoes', 8) === 200 && inventory.shoes === 2);
